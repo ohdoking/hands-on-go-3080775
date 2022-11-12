@@ -17,6 +17,8 @@ func greetWithName(name string) string {
 }
 
 // greetWithNameAndAge returns a greeting with the name and age
+// predeclare greeting in the return portion of the function signature itself (named return parameter) 
+// and use naked return
 func greetWithNameAndAge(name string, age int) (greeting string) {
 	greeting = "Hello, my name is " + name + " and I am " + strconv.Itoa(age) + " years old."
 	return
@@ -37,6 +39,7 @@ func main() {
 
 	// invoke greetWithName function
 	fmt.Println(greetWithName("Toni"))
+	fmt.Println(greetWithNameAndAge("Dokeun", 33))
 
 	// invoke divide function
 	fmt.Println(divide(10, 2))
