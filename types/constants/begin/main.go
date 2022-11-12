@@ -1,9 +1,13 @@
 // types/constants/begin/main.go
 package main
 
-// declare a constant representing pi
+// idiomatic Go nudges us towards using lower case for const 
 
+// declare a constant representing pi
+const pi - 3.14159
 // declare a rune constant for the letter 'a'
+// rune type is actullay an alias for int32 type
+const a rune = 'a'
 
 func main() {
 	// print the value and types of pi and a
