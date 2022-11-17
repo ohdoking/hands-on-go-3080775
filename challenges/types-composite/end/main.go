@@ -56,7 +56,7 @@ func main() {
 	})
 
 	// dump the library with spew
-	spew.Dump(lib)
+	g.Dump(lib)
 
 	// lookup books by known author in the library
 	books := lib.lookupByAuthorName(jb.name)
