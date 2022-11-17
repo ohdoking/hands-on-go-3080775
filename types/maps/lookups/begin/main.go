@@ -17,4 +17,9 @@ func main() {
 	fmt.Println("JR: ", authors["jr"])
 
 	// check when a key is present in the map
+	// it's advisable to use technique called comma ok style
+	v, ok := authors["jr"]
+	fmt.Printf("v = %v, ok = %v\n", v, ok)	
+	v, ok = authors["ma"]
+	fmt.Printf("v = %v, ok = %v\n", v, ok)	
 }
