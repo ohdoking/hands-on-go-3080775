@@ -1,7 +1,11 @@
 // challenges/types-composite/begin/main.go
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/davecgh/go-spew/spew"
+)
 
 // define an author type with a name
 type author struct {
@@ -45,7 +49,7 @@ func main() {
 	l.addBook(book{title: "title3", author : author{name : "Lisa"}})
 
 	// dump the library with spew
-	//
+	spew.Dump(l)
 
 	// lookup books by known author in the library
 	books := l.lookupByAuthor("Ohdoking")

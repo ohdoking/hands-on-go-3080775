@@ -34,6 +34,8 @@ func (l library) lookupByAuthorName(name string) []book {
 
 func main() {
 	// create a new library
+	// allows us to initialize the map automatically
+	// there's no make statement necessary here.
 	lib := library{}
 
 	// add 2 books to the library by the same author
@@ -56,7 +58,7 @@ func main() {
 	})
 
 	// dump the library with spew
-	g.Dump(lib)
+	spew.Dump(lib)
 
 	// lookup books by known author in the library
 	books := lib.lookupByAuthorName(jb.name)
