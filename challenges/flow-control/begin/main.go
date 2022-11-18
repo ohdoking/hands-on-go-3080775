@@ -4,6 +4,8 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
+	"unicode"
 
 	"github.com/davecgh/go-spew/spew"
 )
@@ -17,7 +19,7 @@ func main() {
 	}()
 
 	// use os package to read the file specified as a command line argument
-	file, err := os.ReadFile("challenges/data.txt")
+	file, err := os.ReadFile(os.Args[0])
 	if err != nil {
 		panic(err)
 	}
@@ -26,18 +28,22 @@ func main() {
 	fileString := string(file[:])
 
 	// initialize a map to store the counts
-	counts := make(map[string]int)
+	analysis := make(map[string]int)
 
 	// use the standard library utility package that can help us split the string into words
-	//
+	words := strings.Fields(fileString)
+
+	// capture the length of the words slice
+	analysis["words"] = len(words)
 
 	// capture the length of the words slice
 	for _, c := range fileString {
-		cString := string(c)
-		if val, ok := counts[cString]; ok {
-			counts[cString] = val + 1
+		if unicode.IsLetter(c) {
+			analysis["letters"]++
+		} else if unicode.IsNumber(c) {
+			analysis["numbers"]++
 		} else {
-			counts[cString] = 1
+			analysis["symbols"]++
 		}
 	}
 
@@ -45,5 +51,5 @@ func main() {
 	//
 
 	// dump the map to the console using the spew package
-	spew.Dump(counts)
+	spew.Dump(analysis)
 }
