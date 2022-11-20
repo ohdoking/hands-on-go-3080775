@@ -10,6 +10,8 @@ import (
 	"github.com/davecgh/go-spew/spew"
 )
 
+// how to execute code with file
+// go run challenges/flow-control/begin/main.go challenges/data.txt
 func main() {
 	// handle any panics that might occur anywhere in this function
 	defer func() {
@@ -19,7 +21,9 @@ func main() {
 	}()
 
 	// use os package to read the file specified as a command line argument
-	file, err := os.ReadFile(os.Args[0])
+	// position 0 is going to be the acutal executable name itself
+	file, err := os.ReadFile(os  .Args[1])
+	// go wants us to handle our errors very explicitly just like value
 	if err != nil {
 		panic(err)
 	}
